@@ -3093,7 +3093,7 @@ perf_callchain_kernel(struct pt_regs *regs,
 	fr.sp = regs->ARM_sp;
 	fr.lr = regs->ARM_lr;
 	fr.pc = regs->ARM_pc;
-	walk_stackframe(&fr, callchain_trace, entry);
+	//walk_stackframe(&fr, callchain_trace, entry);
 }
 
 static void
