@@ -162,11 +162,7 @@ __secondary_data:
  * registers.
  */
 __enable_mmu:
-#ifdef CONFIG_ALIGNMENT_TRAP
-	orr	r0, r0, #CR_A
-#else
 	bic	r0, r0, #CR_A
-#endif
 #ifdef CONFIG_CPU_DCACHE_DISABLE
 	bic	r0, r0, #CR_C
 #endif
