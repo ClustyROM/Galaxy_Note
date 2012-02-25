@@ -1497,6 +1497,11 @@ static int s5pv310_cpufreq_cpu_init(struct cpufreq_policy *policy)
 	return cpufreq_frequency_table_cpuinfo(policy, s5pv310_freq_table);
 }
 
+static struct freq_attr *s5pv310_cpufreq_attr[] = {
+	&cpufreq_freq_attr_scaling_available_freqs,
+	NULL,
+};
+
 static struct cpufreq_driver s5pv310_driver = {
 	.flags = CPUFREQ_STICKY,
 	.verify = s5pv310_verify_policy,
@@ -1504,6 +1509,7 @@ static struct cpufreq_driver s5pv310_driver = {
 	.get = s5pv310_getspeed,
 	.init = s5pv310_cpufreq_cpu_init,
 	.name = "s5pv310_cpufreq",
+	.attr    = s5pv310_cpufreq_attr,
 #ifdef CONFIG_PM
 	.suspend = s5pv310_cpufreq_suspend,
 	.resume = s5pv310_cpufreq_resume,
